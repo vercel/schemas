@@ -3,9 +3,24 @@
   "version": "0.1.0",
   "description": "All schemas used for validation that are shared between our projects",
   "scripts": {
-    "test": "yarn run lint"
+    "test": "yarn run lint",
+    "lint": "zeit-eslint --ext .jsx,.js .",
+    "lint-staged": "git diff --diff-filter=ACMRT --cached --name-only '*.js' '*.jsx' | xargs zeit-eslint"
   },
   "repository": "zeit/schemas",
   "author": "leo",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@zeit/eslint-config-node": "0.2.13",
+    "@zeit/git-hooks": "0.1.4",
+    "eslint": "4.19.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@zeit/eslint-config-node"
+    ]
+  },
+  "git": {
+    "pre-commit": "lint-staged"
+  }
 }
