@@ -27,7 +27,7 @@ const AJV = require('ajv');
 const ajv = new AJV({ allErrors: true });
 const isValid = ajv.validate(schema, <object-to-validate>);
 
-if (!validJson) {
+if (!isValid) {
 	console.error(`The following entries are wrong: ${JSON.stringify(ajv.errors)}`);
 }
 ```
