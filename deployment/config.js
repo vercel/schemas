@@ -5,7 +5,6 @@ module.exports = {
 	properties: {
 		'name': {
 			type: 'string',
-			maxLength: 40,
 			minLength: 1
 		},
 		'alias': {
