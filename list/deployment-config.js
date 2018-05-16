@@ -1,3 +1,5 @@
+const static = require('./static');
+
 module.exports = {
 	type: 'object',
 	properties: {
@@ -66,7 +68,8 @@ module.exports = {
 		},
 		'api': {
 			type: 'string'
-		}
+		},
+		static
 	}
 };
 
