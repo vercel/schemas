@@ -1,4 +1,4 @@
-const static = require('./static');
+const staticSchema = require('./config-static');
 
 module.exports = {
 	type: 'object',
@@ -69,7 +69,7 @@ module.exports = {
 		'api': {
 			type: 'string'
 		},
-		static
+		'static': staticSchema
 	}
 };
 

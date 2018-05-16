@@ -13,10 +13,10 @@ The files located in this repository are `.js` and not `.json`, because parsing 
 
 ## Usage
 
-To get started, pick [one of the schemas](./list) and load it:
+To get started, pick one of the schemas in this repository and load it:
 
 ```js
-const schema = require('@zeit/schemas/list/deployment-config');
+const schema = require('@zeit/schemas/deployment/config');
 ```
 
 Next, set up [AJV](https://github.com/epoberezkin/ajv) (the validator) and run the schema through it:
