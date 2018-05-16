@@ -13,7 +13,7 @@ The files located in this repository are `.js` and not `.json`, because parsing 
 
 ## Usage
 
-To get started, pick one of the schemas located in the repository and load it:
+To get started, pick [one of the schemas](./list) and load it:
 
 ```js
 const schema = require('@zeit/schemas/deployment-config');
