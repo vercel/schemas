@@ -2,7 +2,7 @@
   "name": "@zeit/schemas",
   "version": "0.1.0",
   "description": "All schemas used for validation that are shared between our projects",
-  "main": "./list/index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "yarn run lint",
     "lint": "zeit-eslint --ext .jsx,.js .",
