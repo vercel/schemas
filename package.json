@@ -1,6 +1,6 @@
 {
   "name": "@zeit/schemas",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "All schemas used for validation that are shared between our projects",
   "scripts": {
     "test": "yarn run lint",
