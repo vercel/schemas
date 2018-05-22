@@ -2,6 +2,7 @@ const staticSchema = require('./config-static');
 
 module.exports = {
 	type: 'object',
+	additionalProperties: false,
 	properties: {
 		'name': {
 			type: 'string',
@@ -68,7 +69,15 @@ module.exports = {
 		'api': {
 			type: 'string'
 		},
-		'static': staticSchema
+		'static': staticSchema,
+		'features': {
+			type: 'object',
+			patternProperties: {
+				'.*': {
+					type: ['string', 'number', 'boolean']
+				}
+			}
+		}
 	}
 };
 
