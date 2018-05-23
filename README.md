@@ -1,7 +1,7 @@
 # ZEIT's schemas
 
 [![Build Status](https://circleci.com/gh/zeit/schemas.svg?&style=shield)](https://circleci.com/gh/zeit/schemas)
-[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/zeit)
+[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/zeit) [![Greenkeeper badge](https://badges.greenkeeper.io/zeit/schemas.svg)](https://greenkeeper.io/)
 
 The schemas contained within this package are used all across the ZEIT ecosystem to validate config files, requests to APIs and more. It ensures users always send just the right data.
 
