@@ -1,22 +1,34 @@
 module.exports = {
 	type: 'object',
 	properties: {
-		cleanURLs: {
+		'public': {
+			type: 'string'
+		},
+		'cleanURLs': {
 			type: [
 				'boolean',
 				'array'
 			]
 		},
-		rewrites: {
+		'rewrites': {
 			type: 'array'
 		},
-		redirects: {
+		'redirects': {
 			type: 'array'
 		},
-		headers: {
+		'headers': {
 			type: 'array'
 		},
-		trailingSlash: {
+		'directoryListing': {
+			type: [
+				'boolean',
+				'array'
+			]
+		},
+		'unlisted': {
+			type: 'array'
+		},
+		'trailingSlash': {
 			type: 'boolean'
 		}
 	},
