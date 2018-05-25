@@ -37,3 +37,30 @@ exports.test_invalid_features_object = () => {
 	});
 	assert.equal(!isValid, true);
 };
+
+exports.test_invalid_static_object = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		'static': {
+			foo: []
+		}
+	});
+	assert.equal(!isValid, true);
+};
+
+exports.test_valid_static_object_trailing_slash = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		'static': {
+			trailingSlash: true
+		}
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_valid_static_object_invalid_prop = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		'static': {
+			trailingSlash: []
+		}
+	});
+	assert.equal(!isValid, true);
+};
