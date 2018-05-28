@@ -4,7 +4,7 @@ module.exports = {
 		'public': {
 			type: 'string'
 		},
-		'cleanURLs': {
+		'cleanUrls': {
 			type: [
 				'boolean',
 				'array'
