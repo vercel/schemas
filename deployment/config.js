@@ -45,6 +45,9 @@ module.exports = {
 			},
 			additionalProperties: false
 		},
+		'regions': {
+			type: 'array'
+		},
 		'dotenv': {
 			type: [
 				'boolean',
