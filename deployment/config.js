@@ -2,6 +2,7 @@ const staticSchema = require('./config-static');
 
 module.exports = {
 	type: 'object',
+	additionalProperties: false,
 	properties: {
 		'name': {
 			type: 'string',
