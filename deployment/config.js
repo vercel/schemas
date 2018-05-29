@@ -2,7 +2,6 @@ const staticSchema = require('./config-static');
 
 module.exports = {
 	type: 'object',
-	additionalProperties: false,
 	properties: {
 		'name': {
 			type: 'string',
@@ -44,6 +43,9 @@ module.exports = {
 				}
 			},
 			additionalProperties: false
+		},
+		'regions': {
+			type: 'array'
 		},
 		'dotenv': {
 			type: [
