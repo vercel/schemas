@@ -30,6 +30,9 @@ module.exports = {
 		},
 		'trailingSlash': {
 			type: 'boolean'
+		},
+		'renderSingle': {
+			type: 'boolean'
 		}
 	},
 	additionalProperties: false
