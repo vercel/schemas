@@ -12,7 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "@zeit/best": "0.4.3",
-    "@zeit/eslint-config-node": "0.2.13",
+    "@zeit/eslint-config-node": "0.3.0",
     "@zeit/git-hooks": "0.1.4",
     "ajv": "6.5.1",
     "eslint": "4.19.1"
