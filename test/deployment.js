@@ -38,6 +38,26 @@ exports.test_invalid_features_object = () => {
 	assert.equal(!isValid, true);
 };
 
+exports.test_features_object = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		limits: {
+			duration: 60000,
+			maxConcurrentReqs: 2,
+			timeout: 60000 * 2
+		}
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_invalid_limits_object = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		limits: {
+			foo: []
+		}
+	});
+	assert.equal(!isValid, true);
+};
+
 exports.test_invalid_static_object = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
 		'static': {

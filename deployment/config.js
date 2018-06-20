@@ -91,7 +91,8 @@ module.exports = {
 					minimum: 60000,
 					maximum: 60000 * 15 // max duration
 				}
-			}
+			},
+			additionalProperties: false
 		},
 		'features': {
 			type: 'object',
