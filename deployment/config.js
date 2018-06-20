@@ -73,6 +73,27 @@ module.exports = {
 			type: 'string'
 		},
 		'static': staticSchema,
+		'limits': {
+			type: 'object',
+			properties: {
+				duration: {
+					type: 'number',
+					minimum: 60000,
+					maximum: 60000 * 15 // max 15m runtime
+				},
+				maxConcurrentReqs: {
+					type: 'number',
+					minimum: 1,
+					maximum: 1024
+				},
+				timeout: {
+					type: 'number',
+					minimum: 60000,
+					maximum: 60000 * 15 // max duration
+				}
+			},
+			additionalProperties: false
+		},
 		'features': {
 			type: 'object',
 			patternProperties: {
