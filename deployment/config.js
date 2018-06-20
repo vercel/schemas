@@ -73,6 +73,9 @@ module.exports = {
 			type: 'string'
 		},
 		'static': staticSchema,
+		'limits': {
+			type: 'object'
+		},
 		'features': {
 			type: 'object',
 			patternProperties: {
