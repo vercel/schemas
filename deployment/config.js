@@ -15,9 +15,27 @@ module.exports = {
 			]
 		},
 		'env': {
-			type: [
-				'object',
-				'array'
+			anyOf: [
+				{
+					type: 'array',
+					items: {
+						type: [
+							'string',
+							'number'
+						]
+					}
+				},
+				{
+					type: 'object',
+					patternProperties: {
+						'.+': {
+							type: [
+								'string',
+								'number'
+							]
+						}
+					}
+				}
 			]
 		},
 		'scale': {
