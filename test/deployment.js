@@ -58,6 +58,24 @@ exports.test_invalid_limits_object = () => {
 	assert.equal(!isValid, true);
 };
 
+exports.test_valid_env_types = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		env: {
+			VALID: '1'
+		}
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_invalid_env_types = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		env: {
+			INVALID: true
+		}
+	});
+	assert.equal(!isValid, true);
+};
+
 exports.test_invalid_static_object = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
 		'static': {
