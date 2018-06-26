@@ -19,20 +19,14 @@ module.exports = {
 				{
 					type: 'array',
 					items: {
-						type: [
-							'string',
-							'number'
-						]
+						type: 'string'
 					}
 				},
 				{
 					type: 'object',
 					patternProperties: {
 						'.+': {
-							type: [
-								'string',
-								'number'
-							]
+							type: 'string'
 						}
 					}
 				}
