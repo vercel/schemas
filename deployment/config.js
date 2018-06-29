@@ -17,17 +17,17 @@ module.exports = {
 		'env': {
 			anyOf: [
 				{
-					type: 'array',
-					items: {
-						type: 'string'
-					}
-				},
-				{
 					type: 'object',
 					patternProperties: {
 						'.+': {
 							type: 'string'
 						}
+					}
+				},
+				{
+					type: 'array',
+					items: {
+						type: 'string'
 					}
 				}
 			]
@@ -116,4 +116,3 @@ module.exports = {
 		}
 	}
 };
-
