@@ -76,6 +76,37 @@ exports.test_invalid_env_types = () => {
 	assert.equal(!isValid, true);
 };
 
+exports.test_valid_build_env_types = () => {
+	let isValid = ajv.validate(deploymentConfigSchema, {
+		build: {
+			env: {
+				VALID: '1'
+			}
+		}
+	});
+	assert.equal(isValid, true);
+
+	isValid = ajv.validate(deploymentConfigSchema, {
+		build: {
+			env: [
+				'USER_SUPPLIED_ENV'
+			]
+		}
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_invalid_build_env_types = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		build: {
+			env: {
+				INVALID: true
+			}
+		}
+	});
+	assert.equal(!isValid, true);
+};
+
 exports.test_invalid_static_object = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
 		'static': {
