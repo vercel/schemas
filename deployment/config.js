@@ -104,6 +104,14 @@ module.exports = {
 					type: ['string', 'number', 'boolean']
 				}
 			}
+		},
+		'_internal': {
+			type: 'object',
+			patternProperties: {
+				'.*': {
+					type: ['string', 'number', 'boolean']
+				}
+			}
 		}
 	}
 };

@@ -29,6 +29,16 @@ exports.test_features_object = () => {
 	assert.equal(isValid, true);
 };
 
+exports.test_internal_object = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		_internal: {
+			foo: 'v2',
+			bar: 2
+		}
+	});
+	assert.equal(isValid, true);
+};
+
 exports.test_invalid_features_object = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
 		features: {
