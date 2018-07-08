@@ -105,13 +105,8 @@ module.exports = {
 				}
 			}
 		},
-		'_internal': {
-			type: 'object',
-			patternProperties: {
-				'.*': {
-					type: ['string', 'number', 'boolean']
-				}
-			}
+		'slot': {
+			type: 'string'
 		}
 	}
 };
