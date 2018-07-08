@@ -1,4 +1,4 @@
-const envSchema = require('./env');
+const {EnvObject} = require('./env');
 const staticSchema = require('./config-static');
 
 module.exports = {
@@ -15,12 +15,12 @@ module.exports = {
 				'array'
 			]
 		},
-		'env': envSchema,
+		'env': EnvObject,
 		'build': {
 			type: 'object',
 			additionalProperties: false,
 			properties: {
-				env: envSchema
+				env: EnvObject
 			}
 		},
 		'scale': {
