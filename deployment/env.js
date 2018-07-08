@@ -1,6 +1,5 @@
 const maxEnvLength = 100;
 
-/* TODO: figure out how to make these blacklisted for `EnvKey`
 const reservedEnvKeys = [
 	'NOW',
 	'NOW_REGION',
@@ -18,13 +17,15 @@ const reservedEnvKeys = [
 	'DEPLOYMENT_ID',
 	'REGISTRY_AUTH_TOKEN'
 ];
-*/
 
 const EnvKey = {
 	type: 'string',
 	pattern: '^[A-z0-9_]+$',
 	minLength: 1,
-	maxLength: 256
+	maxLength: 256,
+	not: {
+		'enum': reservedEnvKeys
+	}
 };
 
 const EnvKeys = {
