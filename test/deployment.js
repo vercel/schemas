@@ -59,10 +59,17 @@ exports.test_invalid_limits_object = () => {
 };
 
 exports.test_valid_env_types = () => {
-	const isValid = ajv.validate(deploymentConfigSchema, {
+	let isValid = ajv.validate(deploymentConfigSchema, {
 		env: {
 			VALID: '1'
 		}
+	});
+	assert.equal(isValid, true);
+
+	isValid = ajv.validate(deploymentConfigSchema, {
+		env: [
+			'VALID'
+		]
 	});
 	assert.equal(isValid, true);
 };
