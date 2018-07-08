@@ -29,14 +29,25 @@ exports.test_features_object = () => {
 	assert.equal(isValid, true);
 };
 
-exports.test_internal_object = () => {
+exports.test_slot_key = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
-		_internal: {
-			foo: 'v2',
-			bar: 2
-		}
+		slot: 'c.125-m512'
 	});
 	assert.equal(isValid, true);
+};
+
+exports.test_staging_slot_key = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		slot: 'staging-c.5-t1-w-m1024'
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_invalid_slot_key = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		slot: 'invalid-key'
+	});
+	assert.equal(isValid, false);
 };
 
 exports.test_invalid_features_object = () => {
