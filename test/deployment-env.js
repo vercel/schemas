@@ -62,6 +62,15 @@ exports.test_env_keys_non_unique = () => {
 	assert.equal(ajv.errors[0].keyword, 'uniqueItems');
 };
 
+exports.test_env_keys_reserved = () => {
+	const isValid = ajv.validate(EnvKeys, [
+		'FOO',
+		'NOW'
+	]);
+	assert.equal(isValid, false);
+	assert.equal(ajv.errors[0].keyword, 'not');
+};
+
 // EnvObject
 exports.test_env_object_valid = () => {
 	const isValid = ajv.validate(EnvObject, {
@@ -69,6 +78,14 @@ exports.test_env_object_valid = () => {
 		BAZ: '@secret'
 	});
 	assert.equal(isValid, true);
+};
+
+exports.test_env_object_bad_type = () => {
+	const isValid = ajv.validate(EnvObject, {
+		FOO: true
+	});
+	assert.equal(isValid, false);
+	assert.equal(ajv.errors[0].keyword, 'type');
 };
 
 exports.test_env_object_bad_type = () => {
