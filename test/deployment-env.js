@@ -88,10 +88,10 @@ exports.test_env_object_bad_type = () => {
 	assert.equal(ajv.errors[0].keyword, 'type');
 };
 
-exports.test_env_object_bad_type = () => {
+exports.test_env_object_too_long = () => {
 	const isValid = ajv.validate(EnvObject, {
-		FOO: true
+		FOO: 'a'.repeat(70000)
 	});
 	assert.equal(isValid, false);
-	assert.equal(ajv.errors[0].keyword, 'type');
+	assert.equal(ajv.errors[0].keyword, 'maxLength');
 };
