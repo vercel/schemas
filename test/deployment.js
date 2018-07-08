@@ -31,6 +31,9 @@ exports.test_features_object = () => {
 
 exports.test_slot_key = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
+		features: {
+			cloud: 'v2'
+		},
 		slot: 'c.125-m512'
 	});
 	assert.equal(isValid, true);
@@ -38,6 +41,9 @@ exports.test_slot_key = () => {
 
 exports.test_staging_slot_key = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
+		features: {
+			cloud: 'v2'
+		},
 		slot: 'staging-c.5-t1-w-m1024'
 	});
 	assert.equal(isValid, true);
@@ -45,7 +51,17 @@ exports.test_staging_slot_key = () => {
 
 exports.test_invalid_slot_key = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
+		features: {
+			cloud: 'v2'
+		},
 		slot: 'invalid-key'
+	});
+	assert.equal(isValid, false);
+};
+
+exports.test_slot_key_without_cloud_v2 = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		slot: 'c.125-m512'
 	});
 	assert.equal(isValid, false);
 };

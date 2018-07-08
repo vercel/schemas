@@ -1,9 +1,24 @@
 const envSchema = require('./env');
 const staticSchema = require('./config-static');
 
+
 module.exports = {
 	type: 'object',
 	additionalProperties: false,
+	dependencies: {
+		slot: {
+			properties: {
+				features: {
+					type: 'object',
+					properties: {
+						cloud: {
+							'const': 'v2'
+						}
+					}
+				}
+			}
+		}
+	},
 	properties: {
 		'name': {
 			type: 'string',
