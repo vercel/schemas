@@ -7,17 +7,20 @@ module.exports = {
 	additionalProperties: false,
 	dependencies: {
 		slot: {
+			type: 'object',
+			required: ['features'],
 			properties: {
-				features: {
-					type: 'object',
-					properties: {
-						cloud: {
-							'const': 'v2'
-						}
-					}
-				}
-			}
-		}
+				 features: {
+					 type: 'object',
+					 required: ['cloud'],
+					 properties: {
+						 cloud: {
+							 'const': 'v2'
+						 }
+					 }
+				 }
+			 }
+		 }
 	},
 	properties: {
 		'name': {
