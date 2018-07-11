@@ -20,7 +20,7 @@ module.exports = {
 			type: 'object',
 			additionalProperties: false,
 			properties: {
-				env: EnvObject
+				env: { anyOf: [EnvObject, EnvKeys] }
 			}
 		},
 		'scale': {
