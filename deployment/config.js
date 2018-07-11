@@ -1,9 +1,27 @@
 const {EnvKeys, EnvObject} = require('./env');
 const staticSchema = require('./config-static');
 
+
 module.exports = {
 	type: 'object',
 	additionalProperties: false,
+	dependencies: {
+		slot: {
+			type: 'object',
+			required: ['features'],
+			properties: {
+				 features: {
+					 type: 'object',
+					 required: ['cloud'],
+					 properties: {
+						 cloud: {
+							 'const': 'v2'
+						 }
+					 }
+				 }
+			 }
+		 }
+	},
 	properties: {
 		'name': {
 			type: 'string',
@@ -104,6 +122,10 @@ module.exports = {
 					type: ['string', 'number', 'boolean']
 				}
 			}
+		},
+		'slot': {
+			type: 'string',
+			pattern: 'c.125-m512|staging-*'
 		}
 	}
 };
