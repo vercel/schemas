@@ -84,11 +84,20 @@ exports.test_invalid_env_types = () => {
 };
 
 exports.test_valid_build_env_types = () => {
-	const isValid = ajv.validate(deploymentConfigSchema, {
+	let isValid = ajv.validate(deploymentConfigSchema, {
 		build: {
 			env: {
 				VALID: '1'
 			}
+		}
+	});
+	assert.equal(isValid, true);
+
+	isValid = ajv.validate(deploymentConfigSchema, {
+		build: {
+			env: [
+				'VALID'
+			]
 		}
 	});
 	assert.equal(isValid, true);
