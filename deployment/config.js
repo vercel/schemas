@@ -105,7 +105,7 @@ module.exports = {
 				maxConcurrentReqs: {
 					type: 'number',
 					minimum: 1,
-					maximum: 1024
+					maximum: 256
 				},
 				timeout: {
 					type: 'number',
