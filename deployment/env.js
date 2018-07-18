@@ -2,9 +2,6 @@ const maxEnvLength = 100;
 
 const reservedEnvKeys = [
 	'NOW',
-	'NOW_REGION',
-	'NOW_DC',
-	'NOW_URL',
 
 	// Questionable?
 	'PATH',
@@ -12,7 +9,6 @@ const reservedEnvKeys = [
 	'TEMP',
 
 	// Legacy
-	'NOW_PLAN',
 	'AUTH_TOKEN',
 	'DEPLOYMENT_ID',
 	'REGISTRY_AUTH_TOKEN'
@@ -23,9 +19,18 @@ const EnvKey = {
 	pattern: '^[A-z0-9_]+$',
 	minLength: 1,
 	maxLength: 256,
-	not: {
-		'enum': reservedEnvKeys
-	}
+	allOf: [
+		{
+			not: {
+				'enum': reservedEnvKeys
+			}
+		},
+		{
+			not: {
+				pattern: '^NOW_.*$'
+			}
+		}
+	]
 };
 
 const EnvKeys = {

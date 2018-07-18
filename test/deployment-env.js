@@ -63,9 +63,27 @@ exports.test_env_keys_non_unique = () => {
 };
 
 exports.test_env_keys_reserved = () => {
-	const isValid = ajv.validate(EnvKeys, [
+	let isValid = ajv.validate(EnvKeys, [
 		'FOO',
 		'NOW'
+	]);
+	assert.equal(isValid, false);
+	assert.equal(ajv.errors[0].keyword, 'not');
+
+	isValid = ajv.validate(EnvKeys, [
+		'NOW_DC'
+	]);
+	assert.equal(isValid, false);
+	assert.equal(ajv.errors[0].keyword, 'not');
+
+	isValid = ajv.validate(EnvKeys, [
+		'NOW_FOO'
+	]);
+	assert.equal(isValid, false);
+	assert.equal(ajv.errors[0].keyword, 'not');
+
+	isValid = ajv.validate(EnvKeys, [
+		'AUTH_TOKEN'
 	]);
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors[0].keyword, 'not');
