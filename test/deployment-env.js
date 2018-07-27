@@ -4,7 +4,7 @@ const assert = require('assert');
 const {
 	EnvKeys,
 	EnvObject
-} = require('../deployment/env');
+} = require('../deployment/config-env');
 
 const ajv = new AJV({allErrors: true});
 
