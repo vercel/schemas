@@ -1,6 +1,5 @@
-const {EnvKeys, EnvObject} = require('./env');
+const {EnvKeys, EnvObject} = require('./config-env');
 const staticSchema = require('./config-static');
-
 
 module.exports = {
 	type: 'object',
