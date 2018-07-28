@@ -151,6 +151,63 @@ exports.test_invalid_static_object = () => {
 	assert.equal(isValid, false);
 };
 
+exports.test_valid_static_headers_object = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		'static': {
+			headers: [
+				{
+					source: '/_next/webpack/chunks/*',
+					headers: [{
+						key: 'Cache-Control',
+						value: 'adssds'
+					}]
+				},
+				{
+					source: '/_next/static/commons/**',
+					headers: [{
+						key: 'Cache-Control',
+						value: 'public, max-age=31536000, immutable'
+					}]
+				},
+				{
+					source: '/_next/*/page/**/*.js',
+					headers: [{
+						key: 'Cache-Control',
+						value: 'public, max-age=31536000, immutable'
+					}]
+				}
+			]
+		}
+	});
+
+	assert.equal(isValid, true);
+};
+
+exports.test_invalid_static_headers_object = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		'static': {
+			headers: [
+				{
+					source: '/_next/webpack/chunks/*',
+					headers: [{
+						key: ':alternate-protocol',
+						value: 'foo\x00bar'
+					}]
+				},
+				{
+					source: '/_next/static/commons/**',
+					headers: [{
+						key: 'Cache-Control',
+						value: 'public, max-age=31536000, immutable'
+					}]
+				}
+			]
+		}
+	});
+
+	assert.equal(isValid, false);
+};
+
 exports.test_valid_static_object_trailing_slash = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
 		'static': {
