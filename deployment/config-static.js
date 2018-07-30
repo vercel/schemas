@@ -17,7 +17,47 @@ module.exports = {
 			type: 'array'
 		},
 		'headers': {
-			type: 'array'
+			type: 'array',
+			maxItems: 50,
+			minItems: 1,
+			uniqueItems: true,
+			items: {
+				type: 'object',
+				required: ['source', 'headers'],
+				properties: {
+					source: {
+						type: 'string',
+						maxLength: 100,
+						minLength: 1
+					},
+					headers: {
+						type: 'array',
+						maxItems: 50,
+						minItems: 1,
+						uniqueItems: true,
+						items: {
+							type: 'object',
+							required: ['key', 'value'],
+							properties: {
+								key: {
+									type: 'string',
+									minLength: 1,
+									maxLength: 32,
+									pattern: "^[a-zA-Z0-9_!#$%&'*+.^`|~-]+$"
+								},
+								value: {
+									type: 'string',
+									minLength: 1,
+									maxLength: 2048,
+									pattern: "^[a-zA-Z0-9_!#$%&'*+., =^`|~-]+$"
+								}
+							},
+							additionalProperties: false
+						}
+					}
+				},
+				additionalProperties: false
+			}
 		},
 		'directoryListing': {
 			type: [
