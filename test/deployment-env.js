@@ -113,3 +113,11 @@ exports.test_env_object_too_long = () => {
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors[0].keyword, 'maxLength');
 };
+
+exports.test_env_keys_npm_token = () => {
+	const isValid = ajv.validate(EnvKeys, [
+		'NOW_NPM_TOKEN'
+	]);
+	assert.equal(isValid, true);
+};
+

@@ -14,6 +14,10 @@ const reservedEnvKeys = [
 	'REGISTRY_AUTH_TOKEN'
 ];
 
+const allowedEnvKey = [
+	'NOW_NPM_TOKEN'
+];
+
 const EnvKey = {
 	type: 'string',
 	pattern: '^[A-z0-9_]+$',
@@ -26,8 +30,14 @@ const EnvKey = {
 			}
 		},
 		{
-			not: {
-				pattern: '^NOW_.*$'
+			'if': {
+				'enum': allowedEnvKey
+			},
+			'then': {},
+			'else': {
+				not: {
+					pattern: '^NOW_.*$'
+				}
 			}
 		}
 	]
