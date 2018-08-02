@@ -1,46 +1,10 @@
 const maxEnvLength = 100;
 
-const reservedEnvKeys = [
-	'NOW',
-
-	// Questionable?
-	'PATH',
-	'HOME',
-	'TEMP',
-
-	// Legacy
-	'AUTH_TOKEN',
-	'DEPLOYMENT_ID',
-	'REGISTRY_AUTH_TOKEN'
-];
-
-const allowedEnvKey = [
-	'NOW_NPM_TOKEN'
-];
-
 const EnvKey = {
 	type: 'string',
 	pattern: '^[A-z0-9_]+$',
 	minLength: 1,
-	maxLength: 256,
-	allOf: [
-		{
-			not: {
-				'enum': reservedEnvKeys
-			}
-		},
-		{
-			'if': {
-				'enum': allowedEnvKey
-			},
-			'then': {},
-			'else': {
-				not: {
-					pattern: '^NOW_.*$'
-				}
-			}
-		}
-	]
+	maxLength: 256
 };
 
 const EnvKeys = {
