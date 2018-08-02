@@ -62,33 +62,6 @@ exports.test_env_keys_non_unique = () => {
 	assert.equal(ajv.errors[0].keyword, 'uniqueItems');
 };
 
-exports.test_env_keys_reserved = () => {
-	let isValid = ajv.validate(EnvKeys, [
-		'FOO',
-		'NOW'
-	]);
-	assert.equal(isValid, false);
-	assert.equal(ajv.errors[0].keyword, 'not');
-
-	isValid = ajv.validate(EnvKeys, [
-		'NOW_DC'
-	]);
-	assert.equal(isValid, false);
-	assert.equal(ajv.errors[0].keyword, 'not');
-
-	isValid = ajv.validate(EnvKeys, [
-		'NOW_FOO'
-	]);
-	assert.equal(isValid, false);
-	assert.equal(ajv.errors[0].keyword, 'not');
-
-	isValid = ajv.validate(EnvKeys, [
-		'AUTH_TOKEN'
-	]);
-	assert.equal(isValid, false);
-	assert.equal(ajv.errors[0].keyword, 'not');
-};
-
 // EnvObject
 exports.test_env_object_valid = () => {
 	const isValid = ajv.validate(EnvObject, {
@@ -113,11 +86,3 @@ exports.test_env_object_too_long = () => {
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors[0].keyword, 'maxLength');
 };
-
-exports.test_env_keys_npm_token = () => {
-	const isValid = ajv.validate(EnvKeys, [
-		'NOW_NPM_TOKEN'
-	]);
-	assert.equal(isValid, true);
-};
-
