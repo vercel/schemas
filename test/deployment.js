@@ -225,3 +225,21 @@ exports.test_valid_static_object_invalid_prop = () => {
 	});
 	assert.equal(isValid, false);
 };
+
+exports.test_github_enabled = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		github: {
+			enabled: false
+		}
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_github_additional_field = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		github: {
+			abc: 'bbc'
+		}
+	});
+	assert.equal(isValid, false);
+};

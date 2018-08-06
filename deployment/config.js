@@ -122,6 +122,15 @@ module.exports = {
 				}
 			}
 		},
+		'github': {
+			type: 'object',
+			properties: {
+				enabled: {
+					type: 'boolean'
+				}
+			},
+			additionalProperties: false
+		},
 		'slot': {
 			type: 'string',
 			pattern: 'c.125-m512|staging-*'
