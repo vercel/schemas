@@ -133,7 +133,7 @@ module.exports = {
 		},
 		'slot': {
 			type: 'string',
-			pattern: 'c.125-m512|staging-*'
+			pattern: 'c.125-m512|c1-m4096|staging-*'
 		}
 	}
 };
