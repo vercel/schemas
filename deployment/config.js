@@ -127,6 +127,9 @@ module.exports = {
 			properties: {
 				enabled: {
 					type: 'boolean'
+				},
+				aliasing: {
+					type: 'boolean'
 				}
 			},
 			additionalProperties: false
