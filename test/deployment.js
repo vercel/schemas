@@ -235,6 +235,15 @@ exports.test_github_enabled = () => {
 	assert.equal(isValid, true);
 };
 
+exports.test_github_aliasing = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		github: {
+			aliasing: false
+		}
+	});
+	assert.equal(isValid, true);
+};
+
 exports.test_github_additional_field = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
 		github: {
