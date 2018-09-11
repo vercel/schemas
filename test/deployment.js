@@ -252,3 +252,39 @@ exports.test_github_additional_field = () => {
 	});
 	assert.equal(isValid, false);
 };
+
+exports.test_scale_sfo1 = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		scale: {
+			sfo1: {
+				min: 0,
+				max: 1
+			}
+		}
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_scale_all = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		scale: {
+			all: {
+				min: 0,
+				max: 'auto'
+			}
+		}
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_scale_invalid = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		scale: {
+			foo: {
+				min: -1,
+				max: 'auto'
+			}
+		}
+	});
+	assert.equal(isValid, false);
+};

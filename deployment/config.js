@@ -43,7 +43,7 @@ module.exports = {
 		'scale': {
 			type: 'object',
 			patternProperties: {
-				'^(sfo|bru|gru|iad)1$': {
+				'.+': {
 					type: 'object',
 					required: ['max', 'min'],
 					properties: {
