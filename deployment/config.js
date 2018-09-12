@@ -130,6 +130,9 @@ module.exports = {
 				},
 				aliasing: {
 					type: 'boolean'
+				},
+				autoAlias: {
+					type: 'boolean'
 				}
 			},
 			additionalProperties: false
