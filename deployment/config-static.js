@@ -42,7 +42,7 @@ module.exports = {
 								key: {
 									type: 'string',
 									minLength: 1,
-									maxLength: 32,
+									maxLength: 128,
 									pattern: "^[a-zA-Z0-9_!#$%&'*+.^`|~-]+$"
 								},
 								value: {
