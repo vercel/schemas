@@ -128,9 +128,6 @@ module.exports = {
 				enabled: {
 					type: 'boolean'
 				},
-				aliasing: {
-					type: 'boolean'
-				},
 				autoAlias: {
 					type: 'boolean'
 				}
