@@ -1,6 +1,18 @@
 const {EnvKeys, EnvObject} = require('./config-env');
 const staticSchema = require('./config-static');
 
+const serviceSchema = {
+	type: 'object',
+	additionalProperties: false,
+	properties: {
+		port: {
+			type: 'number',
+			minimum: 1,
+			maximum: 65535
+		}
+	}
+};
+
 module.exports = {
 	type: 'object',
 	additionalProperties: false,
@@ -137,6 +149,7 @@ module.exports = {
 		'slot': {
 			type: 'string',
 			pattern: 'c.125-m512|c1-m4096|staging-*'
-		}
+		},
+		'service': serviceSchema
 	}
 };
