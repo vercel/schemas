@@ -5,7 +5,7 @@ const Service = {
 		port: {
 			type: 'number',
 			minimum: 1,
-			maximum: 65535
+			maximum: 32767
 		}
 	}
 };
