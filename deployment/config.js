@@ -1,3 +1,4 @@
+const {Service} = require('./service');
 const {EnvKeys, EnvObject} = require('./config-env');
 const staticSchema = require('./config-static');
 
@@ -137,6 +138,7 @@ module.exports = {
 		'slot': {
 			type: 'string',
 			pattern: 'c.125-m512|c1-m4096|staging-*'
-		}
+		},
+		'service': Service
 	}
 };

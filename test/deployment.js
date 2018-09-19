@@ -288,3 +288,37 @@ exports.test_scale_invalid = () => {
 	});
 	assert.equal(isValid, false);
 };
+
+exports.test_service_invalid = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		service: 'foo'
+	});
+	assert.equal(isValid, false);
+};
+
+exports.test_service_port_valid = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		service: {
+			port: 80
+		}
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_service_port_invalid = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		service: {
+			port: 0
+		}
+	});
+	assert.equal(isValid, false);
+};
+
+exports.test_service_port_invalid_type = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		service: {
+			port: '3000'
+		}
+	});
+	assert.equal(isValid, false);
+};
