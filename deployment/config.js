@@ -45,9 +45,9 @@ module.exports = {
 			type: 'object',
 			patternProperties: {
 				'.+': {
-					type: 'object',
-					required: ['max', 'min'],
-					properties: {
+					'type': 'object',
+					'required': ['max', 'min'],
+					'properties': {
 						max: {
 							anyOf: [
 								{
@@ -60,6 +60,22 @@ module.exports = {
 						min: {
 							type: 'number',
 							minimum: 0
+						}
+					},
+					'if': {
+						properties: {
+							max: {
+								type: 'number'
+							}
+						}
+					},
+					'then': {
+						properties: {
+							min: {
+								maximum: {
+									$data: '1/max'
+								}
+							}
 						}
 					}
 				}
