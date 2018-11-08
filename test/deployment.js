@@ -244,6 +244,15 @@ exports.test_github_auto_alias = () => {
 	assert.equal(isValid, true);
 };
 
+exports.test_github_auto_job_cancelation = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		github: {
+			autoJobCancelation: false
+		}
+	});
+	assert.equal(isValid, true);
+};
+
 exports.test_github_additional_field = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
 		github: {
