@@ -131,6 +131,9 @@ module.exports = {
 				},
 				autoAlias: {
 					type: 'boolean'
+				},
+				autoJobCancelation: {
+					type: 'boolean'
 				}
 			},
 			additionalProperties: false
