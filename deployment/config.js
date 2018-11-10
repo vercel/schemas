@@ -134,6 +134,9 @@ module.exports = {
 				},
 				autoJobCancelation: {
 					type: 'boolean'
+				},
+				silent: {
+					type: 'boolean'
 				}
 			},
 			additionalProperties: false
