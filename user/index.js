@@ -13,14 +13,22 @@ const Name = {
 
 const Email = {
 	type: 'string',
-	minLength: 1,
+	minLength: 5,
 	maxLength: 256
 };
 
 const PlatformVersion = {
-	type: 'number',
-	minimum: 1,
-	maximum: 2
+	oneOf: [
+		{
+			// A `null` platform version means to always use the latest
+			type: 'null'
+		},
+		{
+			type: 'integer',
+			minimum: 1,
+			maximum: 2
+		}
+	]
 };
 
 const Avatar = {
