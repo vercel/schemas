@@ -11,6 +11,26 @@ const Name = {
 	maxLength: 32
 };
 
+const Email = {
+	type: 'string',
+	minLength: 5,
+	maxLength: 256
+};
+
+const PlatformVersion = {
+	oneOf: [
+		{
+			// A `null` platform version means to always use the latest
+			type: 'null'
+		},
+		{
+			type: 'integer',
+			minimum: 1,
+			maximum: 2
+		}
+	]
+};
+
 const Avatar = {
 	type: 'string',
 	minLength: 40,
@@ -28,8 +48,10 @@ const User = {
 	properties: {
 		username: Username,
 		name: Name,
+		email: Email,
 		billingChecked: {type: 'boolean'},
 		avatar: Avatar,
+		platformVersion: PlatformVersion,
 		defaultDeploymentDomain: DefaultDeploymentDomain
 	}
 };
@@ -38,6 +60,8 @@ module.exports = {
 	User,
 	Username,
 	Name,
+	Email,
 	Avatar,
+	PlatformVersion,
 	DefaultDeploymentDomain
 };

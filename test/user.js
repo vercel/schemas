@@ -127,3 +127,44 @@ exports.test_avatar_invalid = () => {
 exports.test_avatar_valid = () => {
 	assert(ajv.validate(User, {avatar: 'a'.repeat(40)}));
 };
+
+exports.test_email_valid = () => {
+	assert(ajv.validate(User, {email: 'nate@zeit.co'}));
+};
+
+exports.test_email_invalid = () => {
+	const isValid = ajv.validate(User, {
+		email: `${'n'.repeat(256)}@zeit.co`
+	});
+	assert.equal(isValid, false);
+};
+
+exports.test_avatar_invalid_length = () => {
+	assert(ajv.validate(User, {avatar: 'a'.repeat(40)}));
+};
+
+exports.test_platformVersion_null_valid = () => {
+	assert(ajv.validate(User, {platformVersion: null}));
+};
+
+exports.test_platformVersion_zero_invalid = () => {
+	const isValid = ajv.validate(User, {
+		platformVersion: 0
+	});
+	assert.equal(isValid, false);
+};
+
+exports.test_platformVersion_one_valid = () => {
+	assert(ajv.validate(User, {platformVersion: 1}));
+};
+
+exports.test_platformVersion_two_valid = () => {
+	assert(ajv.validate(User, {platformVersion: 2}));
+};
+
+exports.test_platformVersion_three_invalid = () => {
+	const isValid = ajv.validate(User, {
+		platformVersion: 3
+	});
+	assert.equal(isValid, false);
+};
