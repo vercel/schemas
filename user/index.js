@@ -42,6 +42,42 @@ const DefaultDeploymentDomain = {
 	type: 'string'
 };
 
+const Bio = {
+	type: 'string'
+};
+
+const Website = {
+	type: 'string',
+	minLength: 4,
+	maxLength: 40
+};
+
+const Profile = {
+	type: 'object',
+	properties: {
+		service: {
+			type: 'string'
+		},
+		link: {
+			type: 'string'
+		}
+	}
+};
+
+const Profiles = {
+	type: 'array',
+	minItems: 0,
+	maxItems: 100,
+	uniqueItems: true,
+	items: Profile,
+	additionalProperties: false
+};
+
+const PublicTeams = {
+	type: 'array',
+	items: { type: 'string' }
+};
+
 const User = {
 	type: 'object',
 	additionalProperties: false,
@@ -52,7 +88,11 @@ const User = {
 		billingChecked: {type: 'boolean'},
 		avatar: Avatar,
 		platformVersion: PlatformVersion,
-		defaultDeploymentDomain: DefaultDeploymentDomain
+		defaultDeploymentDomain: DefaultDeploymentDomain,
+		bio: Bio,
+		website: Website,
+		profiles: Profiles,
+		publicTeams: PublicTeams
 	}
 };
 
