@@ -74,11 +74,6 @@ const Profiles = {
 	additionalProperties: false
 };
 
-const PublicTeams = {
-	type: 'array',
-	items: { type: 'string' }
-};
-
 const User = {
 	type: 'object',
 	additionalProperties: false,
@@ -92,8 +87,7 @@ const User = {
 		defaultDeploymentDomain: DefaultDeploymentDomain,
 		bio: Bio,
 		website: Website,
-		profiles: Profiles,
-		publicTeams: PublicTeams
+		profiles: Profiles
 	}
 };
 
