@@ -61,7 +61,8 @@ const Profile = {
 		link: {
 			type: 'string'
 		}
-	}
+	},
+	additionalProperties: false
 };
 
 const Profiles = {
