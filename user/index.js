@@ -38,10 +38,6 @@ const Avatar = {
 	pattern: '^[0-9a-f]+$'
 };
 
-const DefaultDeploymentDomain = {
-	type: 'string'
-};
-
 const Bio = {
 	type: 'string'
 };
@@ -84,7 +80,6 @@ const User = {
 		billingChecked: {type: 'boolean'},
 		avatar: Avatar,
 		platformVersion: PlatformVersion,
-		defaultDeploymentDomain: DefaultDeploymentDomain,
 		bio: Bio,
 		website: Website,
 		profiles: Profiles
@@ -97,6 +92,5 @@ module.exports = {
 	Name,
 	Email,
 	Avatar,
-	PlatformVersion,
-	DefaultDeploymentDomain
+	PlatformVersion
 };
