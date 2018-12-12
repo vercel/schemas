@@ -82,7 +82,8 @@ const User = {
 		platformVersion: PlatformVersion,
 		bio: Bio,
 		website: Website,
-		profiles: Profiles
+		profiles: Profiles,
+		darkmode: {type: 'boolean'}
 	}
 };
 
