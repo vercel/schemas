@@ -27,6 +27,10 @@ module.exports = {
 			type: 'string',
 			minLength: 1
 		},
+		'project': {
+			type: 'string',
+			minLength: 1
+		},
 		'alias': {
 			type: [
 				'string',

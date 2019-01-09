@@ -226,6 +226,13 @@ exports.test_valid_static_object_invalid_prop = () => {
 	assert.equal(isValid, false);
 };
 
+exports.test_project = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		project: 'cool-project'
+	});
+	assert.equal(isValid, true);
+};
+
 exports.test_github_enabled = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
 		github: {
