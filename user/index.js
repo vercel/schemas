@@ -48,6 +48,10 @@ const Website = {
 	maxLength: 40
 };
 
+const ProfileVisibility = {
+	type: 'string'
+};
+
 const Profile = {
 	type: 'object',
 	properties: {
@@ -82,7 +86,8 @@ const User = {
 		platformVersion: PlatformVersion,
 		bio: Bio,
 		website: Website,
-		profiles: Profiles
+		profiles: Profiles,
+		profileVisibility: ProfileVisibility
 	}
 };
 
