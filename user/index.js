@@ -49,7 +49,7 @@ const Website = {
 };
 
 const ProfileVisibility = {
-	type: 'string'
+	type: 'boolean'
 };
 
 const Profile = {
@@ -87,7 +87,7 @@ const User = {
 		bio: Bio,
 		website: Website,
 		profiles: Profiles,
-		profileVisibility: ProfileVisibility
+		profileVisible: ProfileVisibility
 	}
 };
 
