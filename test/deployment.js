@@ -3,7 +3,7 @@ const AJV = require('ajv');
 const assert = require('assert');
 const deploymentConfigSchema = require('../deployment/config');
 
-const ajv = new AJV({allErrors: true});
+const ajv = new AJV({allErrors: true, $data: true});
 
 exports.test_unknown_keys = () => {
 	const isValid = ajv.validate(deploymentConfigSchema, {
@@ -308,6 +308,18 @@ exports.test_scale_invalid = () => {
 			foo: {
 				min: -1,
 				max: 'auto'
+			}
+		}
+	});
+	assert.equal(isValid, false);
+};
+
+exports.test_scale_invalid_min = () => {
+	const isValid = ajv.validate(deploymentConfigSchema, {
+		scale: {
+			foo: {
+				min: 2,
+				max: 1
 			}
 		}
 	});
