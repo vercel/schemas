@@ -23,7 +23,7 @@ exports.test_username_invalid_pattern = () => {
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
 	assert.equal(ajv.errors[0].dataPath, '.username');
-	assert.equal(ajv.errors[0].message, 'should match pattern "^[a-z][a-z0-9_-]*$"');
+	assert.equal(ajv.errors[0].message, 'should match pattern "^[a-z][a-z0-9-]*$"');
 };
 
 exports.test_username_too_short = () => {
@@ -35,7 +35,7 @@ exports.test_username_too_short = () => {
 	assert.equal(ajv.errors[0].dataPath, '.username');
 	assert.equal(ajv.errors[0].message, 'should NOT be shorter than 1 characters');
 	assert.equal(ajv.errors[1].dataPath, '.username');
-	assert.equal(ajv.errors[1].message, 'should match pattern "^[a-z][a-z0-9_-]*$"');
+	assert.equal(ajv.errors[1].message, 'should match pattern "^[a-z][a-z0-9-]*$"');
 };
 
 exports.test_username_too_long = () => {
