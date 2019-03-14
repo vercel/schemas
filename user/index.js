@@ -2,7 +2,7 @@ const Username = {
 	type: 'string',
 	minLength: 1,
 	maxLength: 48,
-	pattern: '^[a-z][a-z0-9-]*$'
+	pattern: '^[a-z][a-z0-9-]*[a-z0-9]$'
 };
 
 const Name = {
