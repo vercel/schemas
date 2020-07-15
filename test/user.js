@@ -168,3 +168,33 @@ exports.test_platformVersion_three_invalid = () => {
 	});
 	assert.equal(isValid, false);
 };
+
+exports.test_importFlowGitProvider_github_valid = () => {
+	assert(ajv.validate(User, {importFlowGitProvider: 'github'}));
+};
+
+exports.test_importFlowGitProvider_gitlab_valid = () => {
+	assert(ajv.validate(User, {importFlowGitProvider: 'gitlab'}));
+};
+
+exports.test_importFlowGitProvider_bitbucket_valid = () => {
+	assert(ajv.validate(User, {importFlowGitProvider: 'bitbucket'}));
+};
+
+exports.test_importFlowGitProvider_null_valid = () => {
+	assert(ajv.validate(User, {importFlowGitProvider: null}));
+};
+
+exports.test_importFlowGitProvider_invalid_value = () => {
+	const isValid = ajv.validate(User, {
+		importFlowGitProvider: 'test'
+	});
+	assert.equal(isValid, false);
+};
+
+exports.test_importFlowGitProvider_number_invalid = () => {
+	const isValid = ajv.validate(User, {
+		importFlowGitProvider: 10
+	});
+	assert.equal(isValid, false);
+};

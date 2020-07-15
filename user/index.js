@@ -17,6 +17,18 @@ const Email = {
 	maxLength: 256
 };
 
+const ImportFlowGitProvider = {
+	oneOf: [
+		{
+			'enum': ['github', 'gitlab', 'bitbucket']
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
+
 const PlatformVersion = {
 	oneOf: [
 		{
@@ -82,7 +94,8 @@ const User = {
 		platformVersion: PlatformVersion,
 		bio: Bio,
 		website: Website,
-		profiles: Profiles
+		profiles: Profiles,
+		importFlowGitProvider: ImportFlowGitProvider
 	}
 };
 
@@ -92,5 +105,6 @@ module.exports = {
 	Name,
 	Email,
 	Avatar,
-	PlatformVersion
+	PlatformVersion,
+	ImportFlowGitProvider
 };
