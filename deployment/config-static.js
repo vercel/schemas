@@ -47,6 +47,7 @@ module.exports = {
 								},
 								value: {
 									type: 'string',
+									nullable: true,
 									minLength: 1,
 									maxLength: 2048,
 									pattern: "^[a-zA-Z0-9_!#$%&'*+.;/:, =^`|~-]+$"
