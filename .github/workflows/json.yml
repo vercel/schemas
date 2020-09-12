@@ -15,7 +15,7 @@ jobs:
           for I in ./deployment/*.js
           do
             node - "$I" > ./json/"$I"on << 'EOF'
-              console.log(JSON.stringify(require(process.argv(2)), null, 2)
+              console.log(JSON.stringify(require(process.argv[2]), null, 2))
           EOF
           done
       - name: Push changes back to GitHub
