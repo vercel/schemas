@@ -198,3 +198,26 @@ exports.test_importFlowGitProvider_number_invalid = () => {
 	});
 	assert.equal(isValid, false);
 };
+
+
+exports.test_importFlowGitNamespace_string_valid = () => {
+	assert(ajv.validate(User, {importFlowGitNamespace: 'test'}));
+};
+
+exports.test_importFlowGitNamespace_null_valid = () => {
+	assert(ajv.validate(User, {importFlowGitNamespace: null}));
+};
+
+exports.test_importFlowGitNamespace_number_invalid = () => {
+	const isValid = ajv.validate(User, {
+		importFlowGitNamespace: 10
+	});
+	assert.strictEqual(isValid, false);
+};
+
+exports.test_importFlowGitNamespace_boolean_invalid = () => {
+	const isValid = ajv.validate(User, {
+		importFlowGitNamespace: true
+	});
+	assert.strictEqual(isValid, false);
+};

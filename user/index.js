@@ -28,6 +28,16 @@ const ImportFlowGitProvider = {
 	]
 };
 
+const ImportFlowGitNamespace = {
+	oneOf: [
+		{
+			type: 'string'
+		},
+		{
+			type: 'null'
+		}
+	]
+};
 
 const PlatformVersion = {
 	oneOf: [
@@ -95,7 +105,8 @@ const User = {
 		bio: Bio,
 		website: Website,
 		profiles: Profiles,
-		importFlowGitProvider: ImportFlowGitProvider
+		importFlowGitProvider: ImportFlowGitProvider,
+		importFlowGitNamespace: ImportFlowGitNamespace
 	}
 };
 
@@ -106,5 +117,6 @@ module.exports = {
 	Email,
 	Avatar,
 	PlatformVersion,
-	ImportFlowGitProvider
+	ImportFlowGitProvider,
+	ImportFlowGitNamespace
 };
