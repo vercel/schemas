@@ -221,3 +221,23 @@ exports.test_importFlowGitNamespace_boolean_invalid = () => {
 	});
 	assert.strictEqual(isValid, false);
 };
+
+exports.test_importFlowGitNamespaceId_string_valid = () => {
+	assert(ajv.validate(User, {importFlowGitNamespaceId: 'test'}));
+};
+
+exports.test_importFlowGitNamespaceId_number_valid = () => {
+	assert(ajv.validate(User, {importFlowGitNamespaceId: 10}));
+};
+
+exports.test_importFlowGitNamespaceId_null_valid = () => {
+	assert(ajv.validate(User, {importFlowGitNamespaceId: null}));
+};
+
+exports.test_importFlowGitNamespaceId_boolean_invalid = () => {
+	const isValid = ajv.validate(User, {
+		importFlowGitNamespaceId: true
+	});
+	assert.strictEqual(isValid, false);
+};
+
