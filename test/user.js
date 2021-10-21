@@ -241,3 +241,33 @@ exports.test_importFlowGitNamespaceId_boolean_invalid = () => {
 	assert.strictEqual(isValid, false);
 };
 
+exports.test_scopeId_valid = () => {
+	assert(ajv.validate(User, {scopeId: '123test'}));
+};
+
+exports.test_scopeId_invalid = () => {
+	const isValid = ajv.validate(User, {
+		scopeId: null
+	});
+	assert.strictEqual(isValid, false);
+};
+
+exports.test_gitNamespaceId_string_valid = () => {
+	assert(ajv.validate(User, {gitNamespaceId: 'test'}));
+};
+
+exports.test_gitNamespaceId_number_valid = () => {
+	assert(ajv.validate(User, {gitNamespaceId: 123}));
+};
+
+exports.test_gitNamespaceId_null_valid = () => {
+	assert(ajv.validate(User, {gitNamespaceId: null}));
+};
+
+exports.test_gitNamespaceId_boolean_invalid = () => {
+	const isValid = ajv.validate(User, {
+		gitNamespaceId: true
+	});
+	assert.strictEqual(isValid, false);
+};
+
