@@ -53,6 +53,24 @@ const ImportFlowGitNamespaceId = {
 	]
 };
 
+const ScopeId = {
+	type: 'string'
+};
+
+const GitNamespaceId = {
+	oneOf: [
+		{
+			type: 'string'
+		},
+		{
+			type: 'number'
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
 const PlatformVersion = {
 	oneOf: [
 		{
@@ -121,7 +139,9 @@ const User = {
 		profiles: Profiles,
 		importFlowGitProvider: ImportFlowGitProvider,
 		importFlowGitNamespace: ImportFlowGitNamespace,
-		importFlowGitNamespaceId: ImportFlowGitNamespaceId
+		importFlowGitNamespaceId: ImportFlowGitNamespaceId,
+		scopeId: ScopeId,
+		gitNamespaceId: GitNamespaceId
 	}
 };
 
@@ -134,5 +154,7 @@ module.exports = {
 	PlatformVersion,
 	ImportFlowGitProvider,
 	ImportFlowGitNamespace,
-	ImportFlowGitNamespaceId
+	ImportFlowGitNamespaceId,
+	ScopeId,
+	GitNamespaceId
 };
