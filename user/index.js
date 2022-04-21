@@ -124,6 +124,16 @@ const Profiles = {
 	additionalProperties: false
 };
 
+const RemoteCaching = {
+	type: 'object',
+	properties: {
+		enabled: {
+			type: 'boolean'
+		},
+	},
+	additionalProperties: false
+}
+
 const User = {
 	type: 'object',
 	additionalProperties: false,
@@ -141,7 +151,8 @@ const User = {
 		importFlowGitNamespace: ImportFlowGitNamespace,
 		importFlowGitNamespaceId: ImportFlowGitNamespaceId,
 		scopeId: ScopeId,
-		gitNamespaceId: GitNamespaceId
+		gitNamespaceId: GitNamespaceId,
+		RemoteCaching: RemoteCaching
 	}
 };
 

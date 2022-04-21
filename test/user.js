@@ -271,3 +271,12 @@ exports.test_gitNamespaceId_boolean_invalid = () => {
 	assert.strictEqual(isValid, false);
 };
 
+exports.test_remoteCaching_valid = () => {
+	assert(ajv.validate(User, {remoteCaching: { enabled: true}}));
+};
+
+exports.test_remoteCaching_valid = () => {
+	const isValid = ajv.validate(User, {remoteCaching: { enabled: 'yes'}});
+	assert.strictEqual(isValid, false);
+};
+
