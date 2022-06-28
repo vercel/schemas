@@ -8,7 +8,7 @@ const ajv = new AJV({ allErrors: true });
 // Username
 exports.test_username_null = () => {
 	const isValid = ajv.validate(User, {
-		username: null,
+		username: null
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
@@ -18,7 +18,7 @@ exports.test_username_null = () => {
 
 exports.test_username_invalid_pattern = () => {
 	const isValid = ajv.validate(User, {
-		username: '!!!',
+		username: '!!!'
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
@@ -31,7 +31,7 @@ exports.test_username_invalid_pattern = () => {
 
 exports.test_username_too_short = () => {
 	const isValid = ajv.validate(User, {
-		username: '',
+		username: ''
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 2);
@@ -49,7 +49,7 @@ exports.test_username_too_short = () => {
 
 exports.test_username_too_long = () => {
 	const isValid = ajv.validate(User, {
-		username: 'a'.repeat(50),
+		username: 'a'.repeat(50)
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
@@ -68,7 +68,7 @@ exports.test_username_valid = () => {
 // Name
 exports.test_name_too_short = () => {
 	const isValid = ajv.validate(User, {
-		name: '',
+		name: ''
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
@@ -81,7 +81,7 @@ exports.test_name_too_short = () => {
 
 exports.test_name_too_long = () => {
 	const isValid = ajv.validate(User, {
-		name: 'a'.repeat(50),
+		name: 'a'.repeat(50)
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
@@ -99,7 +99,7 @@ exports.test_name_valid = () => {
 // BillingChecked
 exports.test_billing_checked_null = () => {
 	const isValid = ajv.validate(User, {
-		billingChecked: null,
+		billingChecked: null
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
@@ -114,7 +114,7 @@ exports.test_billing_checked_valid = () => {
 // Avatar
 exports.test_avatar_too_short = () => {
 	const isValid = ajv.validate(User, {
-		avatar: 'abc',
+		avatar: 'abc'
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
@@ -127,7 +127,7 @@ exports.test_avatar_too_short = () => {
 
 exports.test_avatar_too_long = () => {
 	const isValid = ajv.validate(User, {
-		avatar: 'a'.repeat(50),
+		avatar: 'a'.repeat(50)
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
@@ -140,7 +140,7 @@ exports.test_avatar_too_long = () => {
 
 exports.test_avatar_invalid = () => {
 	const isValid = ajv.validate(User, {
-		avatar: 'n'.repeat(40),
+		avatar: 'n'.repeat(40)
 	});
 	assert.equal(isValid, false);
 	assert.equal(ajv.errors.length, 1);
@@ -158,7 +158,7 @@ exports.test_email_valid = () => {
 
 exports.test_email_invalid = () => {
 	const isValid = ajv.validate(User, {
-		email: `${'n'.repeat(256)}@zeit.co`,
+		email: `${'n'.repeat(256)}@zeit.co`
 	});
 	assert.equal(isValid, false);
 };
@@ -173,7 +173,7 @@ exports.test_platformVersion_null_valid = () => {
 
 exports.test_platformVersion_zero_invalid = () => {
 	const isValid = ajv.validate(User, {
-		platformVersion: 0,
+		platformVersion: 0
 	});
 	assert.equal(isValid, false);
 };
@@ -188,7 +188,7 @@ exports.test_platformVersion_two_valid = () => {
 
 exports.test_platformVersion_three_invalid = () => {
 	const isValid = ajv.validate(User, {
-		platformVersion: 3,
+		platformVersion: 3
 	});
 	assert.equal(isValid, false);
 };
@@ -211,14 +211,14 @@ exports.test_importFlowGitProvider_null_valid = () => {
 
 exports.test_importFlowGitProvider_invalid_value = () => {
 	const isValid = ajv.validate(User, {
-		importFlowGitProvider: 'test',
+		importFlowGitProvider: 'test'
 	});
 	assert.equal(isValid, false);
 };
 
 exports.test_importFlowGitProvider_number_invalid = () => {
 	const isValid = ajv.validate(User, {
-		importFlowGitProvider: 10,
+		importFlowGitProvider: 10
 	});
 	assert.equal(isValid, false);
 };
@@ -233,14 +233,14 @@ exports.test_importFlowGitNamespace_null_valid = () => {
 
 exports.test_importFlowGitNamespace_number_invalid = () => {
 	const isValid = ajv.validate(User, {
-		importFlowGitNamespace: 10,
+		importFlowGitNamespace: 10
 	});
 	assert.strictEqual(isValid, false);
 };
 
 exports.test_importFlowGitNamespace_boolean_invalid = () => {
 	const isValid = ajv.validate(User, {
-		importFlowGitNamespace: true,
+		importFlowGitNamespace: true
 	});
 	assert.strictEqual(isValid, false);
 };
@@ -259,7 +259,7 @@ exports.test_importFlowGitNamespaceId_null_valid = () => {
 
 exports.test_importFlowGitNamespaceId_boolean_invalid = () => {
 	const isValid = ajv.validate(User, {
-		importFlowGitNamespaceId: true,
+		importFlowGitNamespaceId: true
 	});
 	assert.strictEqual(isValid, false);
 };
@@ -270,7 +270,7 @@ exports.test_scopeId_valid = () => {
 
 exports.test_scopeId_invalid = () => {
 	const isValid = ajv.validate(User, {
-		scopeId: null,
+		scopeId: null
 	});
 	assert.strictEqual(isValid, false);
 };
@@ -289,7 +289,7 @@ exports.test_gitNamespaceId_null_valid = () => {
 
 exports.test_gitNamespaceId_boolean_invalid = () => {
 	const isValid = ajv.validate(User, {
-		gitNamespaceId: true,
+		gitNamespaceId: true
 	});
 	assert.strictEqual(isValid, false);
 };
@@ -300,5 +300,14 @@ exports.test_remoteCaching_valid = () => {
 
 exports.test_remoteCaching_valid = () => {
 	const isValid = ajv.validate(User, { remoteCaching: { enabled: 'yes' } });
+	assert.strictEqual(isValid, false);
+};
+
+exports.test_dismissedToasts_valid = () => {
+	assert(ajv.validate(User, { dismissedToasts: { exampleToast: { exampleScopeId: 1656442351576 } } }));
+};
+
+exports.test_dismissedToasts_valid = () => {
+	const isValid = ajv.validate(User, { dismissedToasts: []});
 	assert.strictEqual(isValid, false);
 };
