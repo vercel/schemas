@@ -304,6 +304,10 @@ exports.test_remoteCaching_valid = () => {
 };
 
 exports.test_dismissedToasts_valid = () => {
+	assert(ajv.validate(User, { dismissedToasts: {} }));
+};
+
+exports.test_dismissedToasts_valid = () => {
 	assert(ajv.validate(User, { dismissedToasts: { exampleToast: { exampleScopeId: 1656442351576 } } }));
 };
 

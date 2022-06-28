@@ -134,17 +134,18 @@ const RemoteCaching = {
 	additionalProperties: false
 };
 
-const toast = {
-	type: 'string',
-	minLength: 1,
-	maxLength: 100
-};
+
+// Record<ToastName, Record<Scope, Date>>
 const DismissedToasts = {
 	type: 'object',
-	properties: {
-		[toast]: {}
+	patternProperties: {
+		'^.*$': {
+			'^.*$': {
+				type: 'number'
+			}
+		}
 	},
-	additionalProperties: true
+	additionalProperties: false
 };
 
 const User = {
