@@ -177,7 +177,7 @@ const User = {
 		importFlowGitNamespaceId: ImportFlowGitNamespaceId,
 		scopeId: ScopeId,
 		gitNamespaceId: GitNamespaceId,
-		viewPreference: viewPreference,
+		viewPreference: ViewPreference,
 		remoteCaching: RemoteCaching,
 		dismissedToasts: DismissedToasts
 	}
