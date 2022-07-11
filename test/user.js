@@ -330,14 +330,14 @@ exports.test_remoteCaching_valid = () => {
 };
 
 exports.test_dismissedToasts_valid = () => {
-	assert(ajv.validate(User, { dismissedToasts: {} }));
+	assert(ajv.validate(User, { dismissedToasts: [] }));
 };
 
 exports.test_dismissedToasts_valid = () => {
-	assert(ajv.validate(User, { dismissedToasts: { exampleToast: { exampleScopeId: 1656442351576 } } }));
+	assert(ajv.validate(User, { dismissedToasts: [{ name: ' exampleToast', dismissals: [{ scopeId: 'exampleScopeId', createdAt: 1656442351576 }] }] }));
 };
 
-exports.test_dismissedToasts_valid = () => {
-	const isValid = ajv.validate(User, { dismissedToasts: []});
+exports.test_dismissedToasts_invalid = () => {
+	const isValid = ajv.validate(User, { dismissedToasts: [{ name: ' exampleToast', dismissals: [] }] });
 	assert.strictEqual(isValid, false);
 };

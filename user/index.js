@@ -145,17 +145,40 @@ const RemoteCaching = {
 	additionalProperties: false
 };
 
-
-// Record<ToastName, Record<Scope, Date>>
-const DismissedToasts = {
+const ToastDismissal = {
 	type: 'object',
-	patternProperties: {
-		'^.*$': {
-			'^.*$': {
-				type: 'number'
-			}
+	properties: {
+		scopeId: {
+			type: 'string'
+		},
+		createdAt: {
+			type: 'number'
 		}
 	},
+	additionalProperties: false
+};
+
+const DismissedToast = {
+	type: 'object',
+	properties: {
+		name: {
+			type: 'string'
+		},
+		dismissals: {
+			type: 'array',
+			minItems: 1,
+			maxItems: 50,
+			items: ToastDismissal
+		}
+	},
+	additionalProperties: false
+};
+
+const DismissedToasts = {
+	type: 'array',
+	minItems: 0,
+	maxItems: 50,
+	items: DismissedToast,
 	additionalProperties: false
 };
 
