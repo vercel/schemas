@@ -71,7 +71,7 @@ const GitNamespaceId = {
 	]
 };
 
-const viewPreference = {
+const ViewPreference = {
 	oneOf: [
 		{
 			'enum': ['cards', 'list']
