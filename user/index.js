@@ -71,6 +71,17 @@ const GitNamespaceId = {
 	]
 };
 
+const viewPreference = {
+	oneOf: [
+		{
+			'enum': ['cards', 'list']
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
 const PlatformVersion = {
 	oneOf: [
 		{
@@ -166,6 +177,7 @@ const User = {
 		importFlowGitNamespaceId: ImportFlowGitNamespaceId,
 		scopeId: ScopeId,
 		gitNamespaceId: GitNamespaceId,
+		viewPreference: viewPreference,
 		remoteCaching: RemoteCaching,
 		dismissedToasts: DismissedToasts
 	}
@@ -183,5 +195,6 @@ module.exports = {
 	ImportFlowGitNamespaceId,
 	ScopeId,
 	GitNamespaceId,
+	ViewPreference,
 	DismissedToasts
 };
