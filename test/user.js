@@ -294,6 +294,32 @@ exports.test_gitNamespaceId_boolean_invalid = () => {
 	assert.strictEqual(isValid, false);
 };
 
+exports.test_viewPreference_cards_valid = () => {
+	assert(ajv.validate(User, { viewPreference: 'cards' }));
+};
+
+exports.test_viewPreference_list_valid = () => {
+	assert(ajv.validate(User, { viewPreference: 'list' }));
+};
+
+exports.test_viewPreference_null_valid = () => {
+	assert(ajv.validate(User, { viewPreference: null }));
+};
+
+exports.test_viewPreference_invalid_value = () => {
+	const isValid = ajv.validate(User, {
+		viewPreference: 'test'
+	});
+	assert.equal(isValid, false);
+};
+
+exports.test_viewPreference_number_invalid = () => {
+	const isValid = ajv.validate(User, {
+		viewPreference: 10
+	});
+	assert.equal(isValid, false);
+};
+
 exports.test_remoteCaching_valid = () => {
 	assert(ajv.validate(User, { remoteCaching: { enabled: true } }));
 };
