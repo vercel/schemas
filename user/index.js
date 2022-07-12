@@ -166,7 +166,7 @@ const DismissedToast = {
 		},
 		dismissals: {
 			type: 'array',
-			minItems: 1,
+			minItems: 0,
 			maxItems: 50,
 			items: ToastDismissal
 		}
