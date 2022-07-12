@@ -338,6 +338,6 @@ exports.test_dismissedToasts_valid = () => {
 };
 
 exports.test_dismissedToasts_invalid = () => {
-	const isValid = ajv.validate(User, { dismissedToasts: [{ name: ' exampleToast', dismissals: [] }] });
+	const isValid = ajv.validate(User, { dismissedToasts: [{ name: ' exampleToast', otherProp: 'abc' }] });
 	assert.strictEqual(isValid, false);
 };
