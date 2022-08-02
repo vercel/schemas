@@ -183,9 +183,14 @@ const DismissedToasts = {
 };
 
 const EnablePreviewFeedback = {
-	type: {
-		enum: ['default', 'on', 'off'],
-	},
+	oneOf: [
+		{
+			enum: ['on', 'off', 'default'],
+		},
+		{
+			type: 'null',
+		},
+	],
 };
 
 const User = {
