@@ -185,7 +185,14 @@ const DismissedToasts = {
 const EnablePreviewFeedback = {
 	oneOf: [
 		{
-			enum: ['on', 'off', 'default', 'on-force', 'off-force'],
+			enum: [
+				'on',
+				'off',
+				'default',
+				'on-force',
+				'off-force',
+				'default-force',
+			],
 		},
 		{
 			type: 'null',
