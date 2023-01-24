@@ -181,6 +181,28 @@ exports.test_valid_static_headers_object = () => {
 	});
 
 	assert.equal(isValid, true);
+
+	for (let i = 0x20; i <= 0xff; i++) {
+		if (i > 0x7e && i < 0xa0) {
+			continue;
+		}
+
+		const result = ajv.validate(deploymentConfigSchema, {
+			'static': {
+				headers: [
+					{
+						source: '/',
+						headers: [{
+							key: 'X-Test',
+							value: `value ${String.fromCharCode(i)}`
+						}]
+					}
+				]
+			}
+		});
+
+		assert.equal(result, true, `Failed to validate for char: 0x${i.toString(16)}`);
+	}
 };
 
 exports.test_invalid_static_headers_object = () => {
@@ -206,6 +228,27 @@ exports.test_invalid_static_headers_object = () => {
 	});
 
 	assert.equal(isValid, false);
+
+	// Use 256 to go above 0xff
+	for (let i = 0; i <= 256; i++) {
+		if ((i >= 0x20 && i <= 0x7e) || (i >= 0xa0 && i <= 0xff)) {
+			continue;
+		}
+
+		const result = ajv.validate(deploymentConfigSchema, {
+			'static': {
+				headers: {
+					source: '/',
+					headers: [{
+						key: 'X-Test',
+						value: `value ${String.fromCharCode(i)}`
+					}]
+				}
+			}
+		});
+
+		assert.equal(result, false, `Failed to error for char: 0x${i.toString(16)}`);
+	}
 };
 
 exports.test_valid_static_object_trailing_slash = () => {
