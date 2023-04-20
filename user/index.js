@@ -182,6 +182,30 @@ const DismissedToasts = {
 	additionalProperties: false
 };
 
+const FavoriteProject = {
+	type: 'object',
+	properties: {
+		projectId: {
+			type: 'string'
+		},
+		scopeId: {
+			type: 'string'
+		},
+		scopeSlug: {
+			type: 'string'
+		}
+	},
+	additionalProperties: false
+};
+
+const FavoriteProjects = {
+	type: 'array',
+	minItems: 0,
+	maxItems: 12,
+	items: FavoriteProject,
+	additionalProperties: false
+};
+
 const EnablePreviewFeedback = {
 	oneOf: [
 		{
@@ -221,7 +245,8 @@ const User = {
 		viewPreference: ViewPreference,
 		remoteCaching: RemoteCaching,
 		dismissedToasts: DismissedToasts,
-		enablePreviewFeedback: EnablePreviewFeedback
+		enablePreviewFeedback: EnablePreviewFeedback,
+		favoriteProjects: FavoriteProjects
 	}
 };
 
