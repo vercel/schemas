@@ -341,3 +341,25 @@ exports.test_dismissedToasts_invalid = () => {
 	const isValid = ajv.validate(User, { dismissedToasts: [{ name: ' exampleToast', otherProp: 'abc' }] });
 	assert.strictEqual(isValid, false);
 };
+
+exports.test_favoriteProjects_valid = () => {
+	assert(ajv.validate(User, { favoriteProjects: [] }));
+};
+
+exports.test_favoriteProjects_valid = () => {
+	assert(
+		ajv.validate(User, {
+			favoriteProjects: [
+				{ projectId: '123', scopeId: '123', scopeSlug: 'A Slug' },
+				{ projectId: '123', scopeId: '123', scopeSlug: 'A Slug' }
+			]
+		})
+	);
+};
+
+exports.test_favoriteProjects_invalid = () => {
+	const isValid = ajv.validate(User, {
+		favoriteProjects: [{ projectId: '123', missing: '123', unknownProp: 'A Slug' }]
+	});
+	assert.strictEqual(isValid, false);
+};
