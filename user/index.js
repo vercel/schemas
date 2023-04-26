@@ -182,7 +182,7 @@ const DismissedToasts = {
 	additionalProperties: false
 };
 
-const FavoriteProject = {
+const FavoriteProjectOrSpace = {
 	type: 'object',
 	properties: {
 		projectId: {
@@ -205,7 +205,7 @@ const FavoriteProjectsAndSpaces = {
 	type: 'array',
 	minItems: 0,
 	maxItems: 12,
-	items: FavoriteProject,
+	items: FavoriteProjectOrSpace,
 	additionalProperties: false
 };
 
