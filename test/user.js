@@ -342,24 +342,25 @@ exports.test_dismissedToasts_invalid = () => {
 	assert.strictEqual(isValid, false);
 };
 
-exports.test_favoriteProjects_valid = () => {
-	assert(ajv.validate(User, { favoriteProjects: [] }));
+exports.test_favoriteProjectsAndSpaces_valid = () => {
+	assert(ajv.validate(User, { favoriteProjectsAndSpaces: [] }));
 };
 
-exports.test_favoriteProjects_valid = () => {
+exports.test_favoriteProjectsAndSpaces_valid = () => {
 	assert(
 		ajv.validate(User, {
-			favoriteProjects: [
+			favoriteProjectsAndSpaces: [
 				{ projectId: '123', scopeId: '123', scopeSlug: 'A Slug' },
-				{ projectId: '123', scopeId: '123', scopeSlug: 'A Slug' }
+				{ projectId: '123', scopeId: '123', scopeSlug: 'A Slug' },
+				{ spaceId: '123', scopeId: '123', scopeSlug: 'A Slug' }
 			]
 		})
 	);
 };
 
-exports.test_favoriteProjects_invalid = () => {
+exports.test_favoriteProjectsAndSpaces_invalid = () => {
 	const isValid = ajv.validate(User, {
-		favoriteProjects: [{ projectId: '123', missing: '123', unknownProp: 'A Slug' }]
+		favoriteProjectsAndSpaces: [{ projectId: '123', missing: '123', unknownProp: 'A Slug' }]
 	});
 	assert.strictEqual(isValid, false);
 };
