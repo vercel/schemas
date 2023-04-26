@@ -182,10 +182,13 @@ const DismissedToasts = {
 	additionalProperties: false
 };
 
-const FavoriteProject = {
+const FavoriteProjectOrSpace = {
 	type: 'object',
 	properties: {
 		projectId: {
+			type: 'string'
+		},
+		spaceId: {
 			type: 'string'
 		},
 		scopeId: {
@@ -198,11 +201,11 @@ const FavoriteProject = {
 	additionalProperties: false
 };
 
-const FavoriteProjects = {
+const FavoriteProjectsAndSpaces = {
 	type: 'array',
 	minItems: 0,
 	maxItems: 12,
-	items: FavoriteProject,
+	items: FavoriteProjectOrSpace,
 	additionalProperties: false
 };
 
@@ -246,7 +249,7 @@ const User = {
 		remoteCaching: RemoteCaching,
 		dismissedToasts: DismissedToasts,
 		enablePreviewFeedback: EnablePreviewFeedback,
-		favoriteProjects: FavoriteProjects
+		favoriteProjectsAndSpaces: FavoriteProjectsAndSpaces
 	}
 };
 
