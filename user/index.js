@@ -228,43 +228,43 @@ const EnablePreviewFeedback = {
 };
 
 const DefaultTeamId = {
-  oneOf: [
-    {
-      type: 'string',
-      maxLength: 29,
-    },
-    {
-      type: 'null',
-    },
-  ],
-}
+	oneOf: [
+		{
+			type: 'string',
+			maxLength: 29
+		},
+		{
+			type: 'null'
+		}
+	]
+};
 
 const User = {
-  type: 'object',
-  additionalProperties: false,
-  properties: {
-    username: Username,
-    name: Name,
-    email: Email,
-    billingChecked: { type: 'boolean' },
-    avatar: Avatar,
-    platformVersion: PlatformVersion,
-    bio: Bio,
-    website: Website,
-    profiles: Profiles,
-    importFlowGitProvider: ImportFlowGitProvider,
-    importFlowGitNamespace: ImportFlowGitNamespace,
-    importFlowGitNamespaceId: ImportFlowGitNamespaceId,
-    scopeId: ScopeId,
-    gitNamespaceId: GitNamespaceId,
-    viewPreference: ViewPreference,
-    remoteCaching: RemoteCaching,
-    dismissedToasts: DismissedToasts,
-    enablePreviewFeedback: EnablePreviewFeedback,
-    favoriteProjectsAndSpaces: FavoriteProjectsAndSpaces,
-    defaultTeamId: DefaultTeamId,
-  },
-}
+	type: 'object',
+	additionalProperties: false,
+	properties: {
+		username: Username,
+		name: Name,
+		email: Email,
+		billingChecked: { type: 'boolean' },
+		avatar: Avatar,
+		platformVersion: PlatformVersion,
+		bio: Bio,
+		website: Website,
+		profiles: Profiles,
+		importFlowGitProvider: ImportFlowGitProvider,
+		importFlowGitNamespace: ImportFlowGitNamespace,
+		importFlowGitNamespaceId: ImportFlowGitNamespaceId,
+		scopeId: ScopeId,
+		gitNamespaceId: GitNamespaceId,
+		viewPreference: ViewPreference,
+		remoteCaching: RemoteCaching,
+		dismissedToasts: DismissedToasts,
+		enablePreviewFeedback: EnablePreviewFeedback,
+		favoriteProjectsAndSpaces: FavoriteProjectsAndSpaces,
+		defaultTeamId: DefaultTeamId
+	}
+};
 
 module.exports = {
   User,
