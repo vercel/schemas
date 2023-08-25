@@ -227,6 +227,18 @@ const EnablePreviewFeedback = {
 	]
 };
 
+const DefaultTeamId = {
+	oneOf: [
+		{
+			type: 'string',
+			maxLength: 29
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
 const User = {
 	type: 'object',
 	additionalProperties: false,
@@ -249,7 +261,8 @@ const User = {
 		remoteCaching: RemoteCaching,
 		dismissedToasts: DismissedToasts,
 		enablePreviewFeedback: EnablePreviewFeedback,
-		favoriteProjectsAndSpaces: FavoriteProjectsAndSpaces
+		favoriteProjectsAndSpaces: FavoriteProjectsAndSpaces,
+		defaultTeamId: DefaultTeamId
 	}
 };
 
