@@ -204,7 +204,6 @@ const FavoriteProjectOrSpace = {
 const FavoriteProjectsAndSpaces = {
 	type: 'array',
 	minItems: 0,
-	maxItems: 12,
 	items: FavoriteProjectOrSpace,
 	additionalProperties: false
 };
