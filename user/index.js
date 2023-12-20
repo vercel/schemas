@@ -82,6 +82,17 @@ const ViewPreference = {
 	]
 };
 
+const FavoritesViewPreference = {
+	oneOf: [
+		{
+			'enum': ['open', 'closed']
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
 const PlatformVersion = {
 	oneOf: [
 		{
@@ -257,6 +268,7 @@ const User = {
 		scopeId: ScopeId,
 		gitNamespaceId: GitNamespaceId,
 		viewPreference: ViewPreference,
+		favoritesViewPreference: FavoritesViewPreference,
 		remoteCaching: RemoteCaching,
 		dismissedToasts: DismissedToasts,
 		enablePreviewFeedback: EnablePreviewFeedback,
@@ -278,5 +290,6 @@ module.exports = {
 	ScopeId,
 	GitNamespaceId,
 	ViewPreference,
+	FavoritesViewPreference,
 	DismissedToasts
 };
