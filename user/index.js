@@ -290,5 +290,6 @@ module.exports = {
 	ScopeId,
 	GitNamespaceId,
 	ViewPreference,
+	FavoritesViewPreference,
 	DismissedToasts
 };
