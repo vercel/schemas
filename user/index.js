@@ -82,7 +82,7 @@ const ViewPreference = {
 	]
 };
 
-const FavoritesViewPreference = {
+const ToggleViewPreference = {
 	oneOf: [
 		{
 			'enum': ['open', 'closed']
@@ -268,7 +268,8 @@ const User = {
 		scopeId: ScopeId,
 		gitNamespaceId: GitNamespaceId,
 		viewPreference: ViewPreference,
-		favoritesViewPreference: FavoritesViewPreference,
+		favoritesViewPreference: ToggleViewPreference,
+		recentsViewPreference: ToggleViewPreference,
 		remoteCaching: RemoteCaching,
 		dismissedToasts: DismissedToasts,
 		enablePreviewFeedback: EnablePreviewFeedback,
@@ -290,6 +291,6 @@ module.exports = {
 	ScopeId,
 	GitNamespaceId,
 	ViewPreference,
-	FavoritesViewPreference,
+	ToggleViewPreference,
 	DismissedToasts
 };

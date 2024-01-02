@@ -346,6 +346,32 @@ exports.test_favoritesViewPreference_number_invalid = () => {
 	assert.equal(isValid, false);
 };
 
+exports.test_recentsViewPreference_open_valid = () => {
+	assert(ajv.validate(User, { recentsViewPreference: 'open' }));
+};
+
+exports.test_recentsViewPreference_closed_valid = () => {
+	assert(ajv.validate(User, { recentsViewPreference: 'closed' }));
+};
+
+exports.test_recentsViewPreference_null_valid = () => {
+	assert(ajv.validate(User, { recentsViewPreference: null }));
+};
+
+exports.test_recentsViewPreference_invalid_value = () => {
+	const isValid = ajv.validate(User, {
+		recentsViewPreference: 'test'
+	});
+	assert.equal(isValid, false);
+};
+
+exports.test_recentsViewPreference_number_invalid = () => {
+	const isValid = ajv.validate(User, {
+		recentsViewPreference: 10
+	});
+	assert.equal(isValid, false);
+};
+
 exports.test_remoteCaching_valid = () => {
 	assert(ajv.validate(User, { remoteCaching: { enabled: true } }));
 };
