@@ -16,6 +16,9 @@ module.exports = {
 		'redirects': {
 			type: 'array'
 		},
+		'proxy': {
+			type: 'array'
+		},
 		'headers': {
 			type: 'array',
 			maxItems: 50,
