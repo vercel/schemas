@@ -73,6 +73,9 @@ module.exports = {
 		},
 		'renderSingle': {
 			type: 'boolean'
+		},
+		'symlinks': {
+			type: 'boolean'
 		}
 	},
 	additionalProperties: false
