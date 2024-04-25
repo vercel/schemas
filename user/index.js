@@ -2,7 +2,7 @@ const Username = {
 	type: 'string',
 	minLength: 1,
 	maxLength: 48,
-	pattern: '^[a-z][a-z0-9-]*[a-z0-9]$'
+	pattern: '^[a-z0-9][a-z0-9-]*[a-z0-9]$'
 };
 
 const Name = {
@@ -15,6 +15,82 @@ const Email = {
 	type: 'string',
 	minLength: 5,
 	maxLength: 256
+};
+
+const ImportFlowGitProvider = {
+	oneOf: [
+		{
+			'enum': ['github', 'gitlab', 'bitbucket']
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
+const ImportFlowGitNamespace = {
+	oneOf: [
+		{
+			type: 'string'
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
+const ImportFlowGitNamespaceId = {
+	oneOf: [
+		{
+			type: 'string'
+		},
+		{
+			type: 'number'
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
+const ScopeId = {
+	type: 'string'
+};
+
+const GitNamespaceId = {
+	oneOf: [
+		{
+			type: 'string'
+		},
+		{
+			type: 'number'
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
+const ViewPreference = {
+	oneOf: [
+		{
+			'enum': ['cards', 'list']
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
+const ToggleViewPreference = {
+	oneOf: [
+		{
+			'enum': ['open', 'closed']
+		},
+		{
+			type: 'null'
+		}
+	]
 };
 
 const PlatformVersion = {
@@ -70,6 +146,109 @@ const Profiles = {
 	additionalProperties: false
 };
 
+const RemoteCaching = {
+	type: 'object',
+	properties: {
+		enabled: {
+			type: 'boolean'
+		}
+	},
+	additionalProperties: false
+};
+
+const ToastDismissal = {
+	type: 'object',
+	properties: {
+		scopeId: {
+			type: 'string'
+		},
+		createdAt: {
+			type: 'number'
+		}
+	},
+	additionalProperties: false
+};
+
+const DismissedToast = {
+	type: 'object',
+	properties: {
+		name: {
+			type: 'string'
+		},
+		dismissals: {
+			type: 'array',
+			minItems: 0,
+			maxItems: 50,
+			items: ToastDismissal
+		}
+	},
+	additionalProperties: false
+};
+
+const DismissedToasts = {
+	type: 'array',
+	minItems: 0,
+	maxItems: 50,
+	items: DismissedToast,
+	additionalProperties: false
+};
+
+const FavoriteProjectOrSpace = {
+	type: 'object',
+	properties: {
+		projectId: {
+			type: 'string'
+		},
+		spaceId: {
+			type: 'string'
+		},
+		scopeId: {
+			type: 'string'
+		},
+		scopeSlug: {
+			type: 'string'
+		}
+	},
+	additionalProperties: false
+};
+
+const FavoriteProjectsAndSpaces = {
+	type: 'array',
+	minItems: 0,
+	items: FavoriteProjectOrSpace,
+	additionalProperties: false
+};
+
+const EnablePreviewFeedback = {
+	oneOf: [
+		{
+			'enum': [
+				'on',
+				'off',
+				'default',
+				'on-force',
+				'off-force',
+				'default-force'
+			]
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
+const DefaultTeamId = {
+	oneOf: [
+		{
+			type: 'string',
+			maxLength: 29
+		},
+		{
+			type: 'null'
+		}
+	]
+};
+
 const User = {
 	type: 'object',
 	additionalProperties: false,
@@ -77,12 +256,25 @@ const User = {
 		username: Username,
 		name: Name,
 		email: Email,
-		billingChecked: {type: 'boolean'},
+		billingChecked: { type: 'boolean' },
 		avatar: Avatar,
 		platformVersion: PlatformVersion,
 		bio: Bio,
 		website: Website,
-		profiles: Profiles
+		profiles: Profiles,
+		importFlowGitProvider: ImportFlowGitProvider,
+		importFlowGitNamespace: ImportFlowGitNamespace,
+		importFlowGitNamespaceId: ImportFlowGitNamespaceId,
+		scopeId: ScopeId,
+		gitNamespaceId: GitNamespaceId,
+		viewPreference: ViewPreference,
+		favoritesViewPreference: ToggleViewPreference,
+		recentsViewPreference: ToggleViewPreference,
+		remoteCaching: RemoteCaching,
+		dismissedToasts: DismissedToasts,
+		enablePreviewFeedback: EnablePreviewFeedback,
+		favoriteProjectsAndSpaces: FavoriteProjectsAndSpaces,
+		defaultTeamId: DefaultTeamId
 	}
 };
 
@@ -92,5 +284,13 @@ module.exports = {
 	Name,
 	Email,
 	Avatar,
-	PlatformVersion
+	PlatformVersion,
+	ImportFlowGitProvider,
+	ImportFlowGitNamespace,
+	ImportFlowGitNamespaceId,
+	ScopeId,
+	GitNamespaceId,
+	ViewPreference,
+	ToggleViewPreference,
+	DismissedToasts
 };
