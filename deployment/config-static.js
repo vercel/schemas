@@ -73,6 +73,9 @@ module.exports = {
 		},
 		'renderSingle': {
 			type: 'boolean'
+		},
+		'auth': {
+			type: 'array'
 		}
 	},
 	additionalProperties: false
