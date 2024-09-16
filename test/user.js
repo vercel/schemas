@@ -68,6 +68,11 @@ exports.test_username_valid = () => {
 	assert(ajv.validate(User, { username: 'rauchg' }));
 };
 
+exports.test_username_one_char = () => {
+	assert(ajv.validate(User, { username: 'a' }));
+	assert(ajv.validate(User, { username: '1' }));
+};
+
 // Name
 exports.test_name_too_short = () => {
 	const isValid = ajv.validate(User, {
