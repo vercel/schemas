@@ -25,7 +25,7 @@ exports.test_username_invalid_pattern = () => {
 	assert.equal(ajv.errors[0].dataPath, '.username');
 	assert.equal(
 		ajv.errors[0].message,
-		'should match pattern "^[a-z0-9][a-z0-9-]*[a-z0-9]$"'
+		'should match pattern "^(?!-)(?:[a-z0-9-]{1,48})(?<!-)$"'
 	);
 };
 
@@ -43,7 +43,7 @@ exports.test_username_too_short = () => {
 	assert.equal(ajv.errors[1].dataPath, '.username');
 	assert.equal(
 		ajv.errors[1].message,
-		'should match pattern "^[a-z0-9][a-z0-9-]*[a-z0-9]$"'
+		'should match pattern "^(?!-)(?:[a-z0-9-]{1,48})(?<!-)$"'
 	);
 };
 
@@ -57,6 +57,10 @@ exports.test_username_too_long = () => {
 	assert.equal(
 		ajv.errors[0].message,
 		'should NOT be longer than 48 characters'
+	);
+	assert.equal(
+		ajv.errors[1].message,
+		'should match pattern "^(?!-)(?:[a-z0-9-]{1,48})(?<!-)$"'
 	);
 };
 
