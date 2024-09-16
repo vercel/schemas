@@ -48,11 +48,10 @@ exports.test_username_too_short = () => {
 };
 
 exports.test_username_too_long = () => {
-	const isValid = ajv.validate(User, {
-		username: 'a'.repeat(50)
-	});
+	const username = 'a'.repeat(50);
+	const isValid = ajv.validate(User, { username });
 	assert.equal(isValid, false);
-	assert.equal(ajv.errors.length, 1);
+	assert.equal(ajv.errors.length, 2);
 	assert.equal(ajv.errors[0].dataPath, '.username');
 	assert.equal(
 		ajv.errors[0].message,
