@@ -100,6 +100,40 @@ exports.test_name_too_long = () => {
 	);
 };
 
+exports.test_name_32_chars = () => {
+	const isValid = ajv.validate(User, {
+		name: 'a'.repeat(32)
+	});
+	assert.equal(isValid, true);
+};
+
+exports.test_name_valid_special_chars = () => {
+	assert(ajv.validate(User, { name: "John O'Neil" }));
+	assert(ajv.validate(User, { name: 'Anne-Marie Johnson' }));
+	assert(ajv.validate(User, { name: 'Dr. J.R. Smith' }));
+	assert(ajv.validate(User, { name: 'Renée' }));
+	assert(ajv.validate(User, { name: 'John_Doe' }));
+	assert(ajv.validate(User, { name: 'John@Vercel' }));
+	assert(ajv.validate(User, { name: 'John (Jack)' }));
+	assert(ajv.validate(User, { name: 'Martin, Jr.' }));
+	assert(ajv.validate(User, { name: 'Åsa' }));
+	assert(ajv.validate(User, { name: 'Łukasz' }));
+	assert(ajv.validate(User, { name: 'Ōsaka' }));
+	assert(ajv.validate(User, { name: '王小明' }));
+	assert(ajv.validate(User, { name: '山田太郎' }));
+	assert(ajv.validate(User, { name: 'محمد' }));
+	assert(ajv.validate(User, { name: 'Dr. 李四@Work' }));
+	assert(ajv.validate(User, { name: 'Γιάννης' }));
+	assert(ajv.validate(User, { name: 'Сергей' }));
+	assert(ajv.validate(User, { name: '123' }));
+	assert(ajv.validate(User, { name: 'Müller' }));
+};
+
+exports.test_name_invalid_special_chars = () => {
+	assert.equal(ajv.validate(User, { name: '<html>test</html>' }), false);
+	assert.equal(ajv.validate(User, { name: '![a.png](https://example.com/a.png)' }), false);
+};
+
 exports.test_name_valid = () => {
 	assert(ajv.validate(User, { name: 'Nate' }));
 };
