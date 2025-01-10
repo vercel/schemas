@@ -8,7 +8,8 @@ const Username = {
 const Name = {
 	type: 'string',
 	minLength: 1,
-	maxLength: 32
+	maxLength: 32,
+	pattern: '^[^\\[\\]<>#$!*;]*$'
 };
 
 const Email = {
