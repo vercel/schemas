@@ -1,0 +1,39 @@
+{
+  "EnvKey": {
+    "type": "string",
+    "pattern": "^[A-z0-9_]+$",
+    "minLength": 1,
+    "maxLength": 256
+  },
+  "EnvKeys": {
+    "type": "array",
+    "minItems": 0,
+    "maxItems": 100,
+    "uniqueItems": true,
+    "items": {
+      "type": "string",
+      "pattern": "^[A-z0-9_]+$",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "additionalProperties": false
+  },
+  "EnvValue": {
+    "type": "string",
+    "minLength": 0,
+    "maxLength": 65536
+  },
+  "EnvObject": {
+    "type": "object",
+    "minProperties": 0,
+    "maxProperties": 100,
+    "patternProperties": {
+      ".+": {
+        "type": "string",
+        "minLength": 0,
+        "maxLength": 65536
+      }
+    },
+    "additionalProperties": false
+  }
+}

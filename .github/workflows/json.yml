@@ -1,0 +1,30 @@
+name: Update JSON schema file
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn
+      - run: |
+          mkdir -p json/deployment
+          for I in ./deployment/*.js
+          do
+            node - "$I" > ./json/"$I"on << 'EOF'
+              console.log(JSON.stringify(require(process.argv[2]), null, 2))
+          EOF
+          done
+      - name: Push changes back to GitHub
+        env:
+          GIT_COMMITTER_NAME: Janitor
+          GIT_AUTHOR_NAME: Janitor
+          EMAIL: repository-janitor[bot]@users.noreply.github.com
+        run: |
+          git add --all \
+            && git commit -m "Update $(node -p 'new Date().toJSON()')" \
+            || echo "Nothing to commit"
+          git push origin "$GITHUB_REF"
